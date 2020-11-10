@@ -1,0 +1,48 @@
+<section id="signUp">
+  <div class="overlay">
+  <div class="container">
+
+ <form [formGroup]= "signUp" (ngSubmit)= "signUp.valid && formData()">
+  <div class="form w-50 m-auto">
+    <div class="row my-3">
+      <div class="col-md-6"> <!-- ****************************  Validation Of First Name **************************** -->
+        <input [class.is-valid]= "signUp.get('first_name').status=='VALID'" formControlName="first_name" type="text" class="form-control" placeholder="Enter First Name">
+        <div *ngIf= "signUp.get('first_name').errors && signUp.get('first_name').touched" class="alert alert-danger mt-2" role="alert">
+          First Name is required
+        </div>
+      </div>
+      <div class="col-md-6"><!-- ****************************  Validation Of last-name **************************** -->
+        <input [class.is-valid]= "signUp.get('last_name').status=='VALID'" formControlName="last_name" type="text" class="form-control" placeholder="Enter Last Name">
+        <div *ngIf= "signUp.get('last_name').errors && signUp.get('last_name').touched" class="alert alert-danger mt-2" role="alert">
+          Last Name is required
+        </div>
+      </div>
+    </div>
+    <!-- **********************************  Validation Of Email ******************************************************** -->
+    <input [class.is-valid]= "signUp.get('email').status=='VALID'" formControlName="email" type="email" class="form-control  my-3" placeholder="Enter Email">
+    <div *ngIf= "signUp.get('email').errors && signUp.get('email').touched" class="alert alert-danger mt-2" role="alert">
+      email is required
+    </div>
+    <!-- ****************************  Validation Of Age *************************************** -->
+    <input [class.is-valid]= "signUp.get('age').status=='VALID'" formControlName="age" type="number" class="form-control" placeholder="Enter Your Age">
+    <div *ngIf= "signUp.get('age').errors && signUp.get('age').touched" class="alert alert-danger mt-2" role="alert">
+      age is required
+    </div>
+    <!-- **********************************  Validation Of Password ******************************************************** -->
+    <input [class.is-valid]= "signUp.get('password').status=='VALID'" formControlName="password" type="password" class="form-control my-3" placeholder="Enter Your Password">
+    <div *ngIf= "signUp.get('password').errors && signUp.get('password').touched" class="alert alert-danger mt-2" role="alert">
+      password is required
+    </div>
+    <button [disabled]= "signUp.invalid" class="btn btn-info w-100"><span *ngIf= "!isClicked">Sign UP</span><span *ngIf= "isClicked">Wating . . . . </span></button>
+    <div *ngIf= "isSuccess" class="alert alert-primary mt-2 text-center" role="alert">
+      {{ResponseMessage}}
+    </div>
+    <div *ngIf= "isUniuqeEmail" class="alert alert-danger mt-2 text-center" role="alert">
+      {{isUniuqeEmailMessage}}
+    </div>
+  </div>
+ </form>
+
+   </div>
+ </div>
+</section>

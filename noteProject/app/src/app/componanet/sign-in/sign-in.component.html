@@ -1,0 +1,27 @@
+<section id="signIn">
+  <div class="overlay">
+  <div class="container">
+
+  <form [formGroup]= "signIn" (ngSubmit)= "signIn.valid && formData()">
+    <div class="form w-50 m-auto">
+      <input [class.is-valid]= "signIn.get('email').status=='VALID'" formControlName="email" type="email" class="form-control  my-3" placeholder="Enter Email">
+      <div *ngIf= "signIn.get('email').errors && signIn.get('email').touched" class="alert alert-danger mt-2" role="alert">
+        Email is required
+      </div>
+      <input [class.is-valid]= "signIn.get('password').status=='VALID'" formControlName="password" type="password" class="form-control my-3" placeholder="Enter Your Password">
+      <div *ngIf= "signIn.get('password').errors && signIn.get('password').touched" class="alert alert-danger mt-2" role="alert">
+        Password is required and strat  with any leater
+      </div>
+      <button type="submit" class="btn btn-info w-100"><span *ngIf="">Wating....</span> <span *ngIf="">Login</span></button>
+    </div>
+  </form>
+
+   </div>
+ </div>
+</section>
+<!--
+  ==========================================================================
+                            Here i'm Work
+  ==========================================================================
+
+ -->

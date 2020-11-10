@@ -1,0 +1,23 @@
+#signIn
+{
+  background-image: url('/assets/woman.jpg');
+  background-size: 100% 100%;
+  background-position: 100% ;
+
+
+  height: 100vh;
+}
+#signIn .overlay
+{
+background-color: rgba(0, 0, 0, 0.404);
+width: 100%;
+height: 100%;
+}
+.form
+{
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
